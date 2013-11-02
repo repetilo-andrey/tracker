@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^login/$', 'django.contrib.auth.views.login', name='login' ),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/login/'}, name='logout' ),
 
-    url(r'^$', 'apps.timing.views.timing', {'page_slug': 'tickets'}, name='timing'),
+    url(r'^$', 'timing.views.timing', {'page_slug': 'tickets'}, name='timing'),
     url(r'^(?P<page_slug>[-\w]+)/$', 'timing.views.timing', name='timing'),
 
     url(r'^timing/', include('timing.urls')),
