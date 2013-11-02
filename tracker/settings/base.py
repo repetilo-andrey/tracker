@@ -103,7 +103,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 
-    'apps.timing',
+    'timing',
 
     'jsonrpc',
     'south',
