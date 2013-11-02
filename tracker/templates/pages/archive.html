@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="accordion" id="accordion2" data-bind="foreach: { data: projects, as: 'project' }">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                   data-bind="attr: { href: '#project-'+id }, text: name + ' - ' + total_time">
+                </a>
+            </div>
+            <div data-bind="attr: { id: 'project-'+id }" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <table class="table table-bordered">
+                        <tbody data-bind="foreach: { data: tickets, as: 'ticket' }">
+                        <tr data-bind="attr: { id: id }">
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: time"></td>
+                            <td><a data-bind="attr: { id: id }, click: $root.close_open_ticket" class="btn close-open-ticket">Continue work with ticket</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ STATIC_URL }}js/archive.js" type="text/javascript"></script>
+{% endblock %}

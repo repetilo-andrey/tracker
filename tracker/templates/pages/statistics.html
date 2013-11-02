@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+    <select id="years_select" name="years" class="span2" data-bind="
+            options: years,
+            optionsText: 'value',
+            optionsValue: 'id',
+            value: year
+        "></select>
+    <select id="months_select" name="months" class="span2" data-bind="
+            options: months_in_year,
+            optionsText: 'value',
+            optionsValue: 'id',
+            value: month
+        "></select>
+    <span>Time for month: <span data-bind="text: time_for_month"></span></span>
+<ul class="nav nav-tabs">
+        <li class="active"><a href="#days" data-toggle="tab">By day</a></li>
+        <li><a href="#tickets" data-toggle="tab">By ticket</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="days">
+
+            <div id="placeholder" style="width:600px;height:400px;"></div>
+
+            <ul class="nav nav-list" data-bind="foreach: { data: days, as: 'day' }">
+                <li>
+                    <h4>
+                        Day <span data-bind="text: day.day_number"></span> -
+                        Total time: <span data-bind="text: total_time"></span>
+                    </h4>
+                    <table class="table table-bordered">
+                        <tbody data-bind="foreach: { data: items, as: 'item' }">
+                        <tr>
+                            <td data-bind="text: item[0]"></td>
+                            <td data-bind="text: item[1]"></td>
+                            <td data-bind="text: item[2]"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-pane" id="tickets">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Project</th>
+                    <th>Ticket</th>
+                    <th>Worked time</th>
+                </thead>
+                <tbody data-bind="foreach: { data: time_by_tickets, as: 'time_by_ticket' }">
+                    <tr>
+                        <td data-bind="text: time_by_ticket.project">></td>
+                        <td data-bind="text: time_by_ticket.ticket"></td>
+                        <td data-bind="text: time_by_ticket.time"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/libs/jquery.flot.js"></script>
+<script src="{{ STATIC_URL }}js/statistics.js" type="text/javascript"></script>
+{% endblock %}

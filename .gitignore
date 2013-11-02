@@ -1,0 +1,6 @@
+.idea
+*.pyc
+*.*~
+settings/local.py
+env
+migrations

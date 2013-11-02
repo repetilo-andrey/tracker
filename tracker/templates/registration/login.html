@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Login {% endblock %}
+
+{% block navbar %}
+    <div class="navbar">
+        <div class="navbar-inner navbar-contents" >
+            <ul class="nav navbar-nav">
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1>Please log in</h1>
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <form class="form-stacked" method="post" action="{% url 'django.contrib.auth.views.login' %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <div>    <label>Login:</label>
+            {{ form.username }}
+        </div>
+        <div>    <label>Password</label>
+            {{ form.password }}
+        </div>
+        <div class="actions">
+            <input class="btn primary" type="submit" value="Log in"/>
+        </div>
+    </form>
+{% endblock %}

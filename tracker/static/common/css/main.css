@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/bg.jpg');
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+    border-left: 1px solid #cd5914;
+    border-right: 1px solid #cd5914;
+    border-bottom: 1px solid #cd5914;
+    background-color: white;
+}
+
+.navbar {
+    left: 0px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+}
+
+.navbar-contents {
+    width: 960px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 2px #A39F9E;
+}
+
+#content{
+    min-height: 300px;
+    margin-top: 35px;
+    padding-top: 25px;
+}
+
+#time-logged{
+    padding-left: 25px;
+}
+#time-logged div{
+    float: left;
+}
+.timer-digit{
+    border-left: 1px solid gray;
+    margin-left: 30px;
+    padding-left: 30px;
+}
+.project {
+    float: left;
+    width: 15%;
+    text-align: center;
+}
+.link {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.time {
+    float: left;
+    width: 35%;
+    text-align: center;
+}
+
+.nav{
+    margin-bottom: 25px!important;
+    float: none!important;
+}
+.stop-timing{
+    display:none;
+}
+.ticket-line{
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal.fade{
+    display: none;
+}
+.nav-header{
+    color: red;
+}
+.nav-content{
+    color: #000000;
+}
+#placeholder {
+    background: #f9f9f9;
+    padding-top: 5px!important;
+}
+
+.yAxis .tickLabel{
+    margin-top: 7px;
+}
+.xAxis .tickLabel{
+    margin-top: 5px;
+}
+
+.new-project-name{
+    display: none;
+}
+
+#header-links{
+    float: right;
+}
+#header-links a{
+    color: #ffffff;
+}
+.timer span{
+    display: block;
+    float: left;
+    margin: auto
+}
