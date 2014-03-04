@@ -125,17 +125,19 @@ def show_logged_time(request, logged_time):
 def get_month_and_years(request):
     """ Get current month & year"""
     month = dt.date.today().month
+    current_year = dt.date.today().year
     days = DayStatistic.objects.filter(user=request.user)
-
+    year = 0
     if len(days) == 0:
-        year = 0
         years = [{'id': year, 'value': dt.date.today().year}]
     else:
         years_list = list(set([i.year for i in days.values_list('day', flat=True)]))
+        if current_year not in years_list:
+            years_list.append(current_year)
         years = []
         for i, y in enumerate(sorted(years_list)):
             years.append({'id': i, 'value': y})
-            if y == dt.date.today().year:
+            if y == current_year:
                 year = i
     return {'month': month, 'year': year, 'years': years}
 

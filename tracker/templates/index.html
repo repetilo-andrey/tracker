@@ -3,15 +3,19 @@
 {% block navbar %}
     <div class="navbar">
         <div class="navbar-inner navbar-contents" >
-                    <span id="header-links">
-            {% if user.is_authenticated %}
-                [{{user}}][ <a href="{% url 'logout' %}">logout</a>]
-            {% endif %}
-        </span>
+            <span id="header-links">
+                {% if user.is_authenticated %}
+                    [{{user}}][ <a href="{% url 'logout' %}">logout</a>]
+                {% else %}
+                    [ <a href="{% url 'login' %}">login</a>]
+                {% endif %}
+            </span>
             <ul class="nav navbar-nav">
-                <li><a href="{% url 'timing' 'tickets' %}">Tickets</a></li>
-                <li><a href="{% url 'timing' 'archive' %}" >Archive</a></li>
-                <li><a href="{% url 'timing' 'statistics' %}">Statistic</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'timing' 'tickets' %}">Tickets</a></li>
+                    <li><a href="{% url 'timing' 'archive' %}" >Archive</a></li>
+                    <li><a href="{% url 'timing' 'statistics' %}">Statistic</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

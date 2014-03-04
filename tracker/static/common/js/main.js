@@ -21,9 +21,11 @@ function Tickets() {
 
     self.get_tickets = function() {
         rpc('get_tickets', [], function(data) {
-            $.each(data.tickets, function(i, v){
-                self.tickets.push(v)
-            })
+            if (data.tickets){
+                $.each(data.tickets, function(i, v){
+                    self.tickets.push(v)
+                })
+            }
         });
     };
 
