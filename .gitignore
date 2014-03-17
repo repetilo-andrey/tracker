@@ -1,6 +1,6 @@
 .idea
 *.pyc
 *.*~
-settings/local.py
+local.py
 env
 migrations
