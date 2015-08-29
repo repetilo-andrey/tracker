@@ -36,7 +36,7 @@ class Ticket(models.Model):
         verbose_name_plural = 'Tickets'
 
     def __unicode__(self):
-        return self.name
+        return self.name[:100]
 
 
 class TimePeriod(models.Model):

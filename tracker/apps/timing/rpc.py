@@ -148,12 +148,13 @@ def get_day_stat(request, month, year):
     stat_by_day = {}
     month_time = dt.timedelta(0)
     for day in DayStatistic.objects.filter(user=request.user):
+
         if day.day.year == year and day.day.month == month:
             day_number = day.day.day
             time_periods_list = []
             total_time = dt.timedelta(0)
             for ticket in Ticket.objects.filter(user=request.user):
-                time_periods = ticket.timeperiod_set.filter(time_end__day=day_number)
+                time_periods = ticket.timeperiod_set.filter(time_end__day=day_number, time_end__month=month)
                 if len(time_periods) > 0:
                     times_start = time_periods.values_list('time_start')
                     times_end = time_periods.values_list('time_end')

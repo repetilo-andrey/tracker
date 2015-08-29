@@ -127,7 +127,7 @@ function Tickets() {
         var self = $(this);
         rpc('close_open_ticket', [$(this).attr('id')], function() {
             var tr = $('#'+self.attr('id'), 'tbody');
-            tr.hide("slow", function(){ tr.remove(); });
+            tr.hide("fast", function(){ tr.remove(); });
         });
     };
 }

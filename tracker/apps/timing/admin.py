@@ -4,9 +4,15 @@ from .models import *
 
 
 class TimePeriodAdminInline(admin.TabularInline):
+    list_display = ('ticket', 'time_start', 'time_end')
     model = TimePeriod
     extra = max_num = 1
     readonly_fields = ('time_start', 'time_end', 'user')
+
+
+class TimePeriodAdmin(admin.ModelAdmin):
+    list_display = ('ticket', 'time_start', 'time_end',)
+    model = TimePeriod
 
 
 class TicketAdmin(admin.ModelAdmin):
@@ -26,6 +32,6 @@ class DayStatisticAdmin(admin.ModelAdmin):
 admin.site.register(DayStatistic, DayStatisticAdmin)
 admin.site.register(Ticket, TicketAdmin)
 admin.site.register(Project, ProjectAdmin)
-admin.site.register(TimePeriod)
+admin.site.register(TimePeriod, TimePeriodAdmin)
 
 
