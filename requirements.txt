@@ -1,7 +1,1 @@
-django==1.5
-south
-git+git://github.com/ildus/django-json-rpc.git
 
-dj-database-url==0.2.1
-psycopg2==2.4.6
-gunicorn==0.17.2
